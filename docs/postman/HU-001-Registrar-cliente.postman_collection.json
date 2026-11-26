@@ -1,0 +1,2128 @@
+{
+  "info": {
+    "_postman_id": "8112a907-d66c-4fae-95cd-936ed2956780",
+    "name": "API Paraíso Turístico",
+    "description": "Servicios REST para la gestión turística",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "60446045",
+    "_collection_link": "https://go.postman.co/collection/60446045-8112a907-d66c-4fae-95cd-936ed2956780?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "auth",
+              "item": [
+                {
+                  "name": "clientes",
+                  "item": [
+                    {
+                      "name": "01 - Registro exitoso",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"nombres\": \"Laura\",\n    \"apellidos\": \"Martinez\",\n    \"documento\": \"1098765432\",\n    \"correo\": \"laura@example.com\",\n    \"telefono\": \"3109876543\",\n    \"contrasena\": \"ClavePrueba2026!\"\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://127.0.0.1:8000/api/v1/auth/clientes",
+                          "protocol": "http",
+                          "host": [
+                            "127",
+                            "0",
+                            "0",
+                            "1"
+                          ],
+                          "port": "8000",
+                          "path": [
+                            "api",
+                            "v1",
+                            "auth",
+                            "clientes"
+                          ]
+                        },
+                        "description": "Permite registrar un nuevo cliente en Paraíso Turístico. Valida los datos, verifica que el correo y documento sean únicos, protege la contraseña mediante hash, asigna automáticamente el rol CLIENTE y genera una solicitud de bienvenida pendiente."
+                      },
+                      "response": [
+                        {
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": {\n    \"idUsuario\": 7479,\n    \"nombres\": \"string\",\n    \"rol\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"success\": true\n}"
+                        },
+                        {
+                          "name": "Datos inválidos o incompletos",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Correo o documento duplicado",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Error interno del servidor",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Servicio temporal no disponible",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "02 - Correo duplicado",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"nombres\": \"Andrea\",\n    \"apellidos\": \"Gomez\",\n    \"documento\": \"1002345678\",\n    \"correo\": \"laura@example.com\",\n    \"telefono\": \"3101234567\",\n    \"contrasena\": \"ClavePrueba2026!\"\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://127.0.0.1:8000/api/v1/auth/clientes",
+                          "protocol": "http",
+                          "host": [
+                            "127",
+                            "0",
+                            "0",
+                            "1"
+                          ],
+                          "port": "8000",
+                          "path": [
+                            "api",
+                            "v1",
+                            "auth",
+                            "clientes"
+                          ]
+                        },
+                        "description": "Permite registrar un nuevo cliente en Paraíso Turístico. Valida los datos, verifica que el correo y documento sean únicos, protege la contraseña mediante hash, asigna automáticamente el rol CLIENTE y genera una solicitud de bienvenida pendiente."
+                      },
+                      "response": [
+                        {
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": {\n    \"idUsuario\": 7479,\n    \"nombres\": \"string\",\n    \"rol\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"success\": true\n}"
+                        },
+                        {
+                          "name": "Datos inválidos o incompletos",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Correo o documento duplicado",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Error interno del servidor",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Servicio temporal no disponible",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "03 - Documento duplicado",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"nombres\": \"Pedro\",\n    \"apellidos\": \"Lopez\",\n    \"documento\": \"1098765432\",\n    \"correo\": \"pedro@example.com\",\n    \"telefono\": \"3151234567\",\n    \"contrasena\": \"ClavePrueba2026!\"\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://127.0.0.1:8000/api/v1/auth/clientes",
+                          "protocol": "http",
+                          "host": [
+                            "127",
+                            "0",
+                            "0",
+                            "1"
+                          ],
+                          "port": "8000",
+                          "path": [
+                            "api",
+                            "v1",
+                            "auth",
+                            "clientes"
+                          ]
+                        },
+                        "description": "Permite registrar un nuevo cliente en Paraíso Turístico. Valida los datos, verifica que el correo y documento sean únicos, protege la contraseña mediante hash, asigna automáticamente el rol CLIENTE y genera una solicitud de bienvenida pendiente."
+                      },
+                      "response": [
+                        {
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": {\n    \"idUsuario\": 7479,\n    \"nombres\": \"string\",\n    \"rol\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"success\": true\n}"
+                        },
+                        {
+                          "name": "Datos inválidos o incompletos",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Correo o documento duplicado",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Error interno del servidor",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Servicio temporal no disponible",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "04 - Correo invalido",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"nombres\": \"Daniel\",\n    \"apellidos\": \"Torres\",\n    \"documento\": \"1005678912\",\n    \"correo\": \"correo-invalido\",\n    \"telefono\": \"3201234567\",\n    \"contrasena\": \"ClavePrueba2026!\"\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://127.0.0.1:8000/api/v1/auth/clientes",
+                          "protocol": "http",
+                          "host": [
+                            "127",
+                            "0",
+                            "0",
+                            "1"
+                          ],
+                          "port": "8000",
+                          "path": [
+                            "api",
+                            "v1",
+                            "auth",
+                            "clientes"
+                          ]
+                        },
+                        "description": "Permite registrar un nuevo cliente en Paraíso Turístico. Valida los datos, verifica que el correo y documento sean únicos, protege la contraseña mediante hash, asigna automáticamente el rol CLIENTE y genera una solicitud de bienvenida pendiente."
+                      },
+                      "response": [
+                        {
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": {\n    \"idUsuario\": 7479,\n    \"nombres\": \"string\",\n    \"rol\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"success\": true\n}"
+                        },
+                        {
+                          "name": "Datos inválidos o incompletos",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Correo o documento duplicado",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Error interno del servidor",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Servicio temporal no disponible",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "05 - Campo obligatorio faltante",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"nombres\": \"Daniel\",\n    \"apellidos\": \"Torres\",\n    \"documento\": \"1005678912\",\n    \"correo\": \"daniel@example.com\",\n    \"telefono\": \"3201234567\"\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://127.0.0.1:8000/api/v1/auth/clientes",
+                          "protocol": "http",
+                          "host": [
+                            "127",
+                            "0",
+                            "0",
+                            "1"
+                          ],
+                          "port": "8000",
+                          "path": [
+                            "api",
+                            "v1",
+                            "auth",
+                            "clientes"
+                          ]
+                        },
+                        "description": "Permite registrar un nuevo cliente en Paraíso Turístico. Valida los datos, verifica que el correo y documento sean únicos, protege la contraseña mediante hash, asigna automáticamente el rol CLIENTE y genera una solicitud de bienvenida pendiente."
+                      },
+                      "response": [
+                        {
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": {\n    \"idUsuario\": 7479,\n    \"nombres\": \"string\",\n    \"rol\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"success\": true\n}"
+                        },
+                        {
+                          "name": "Datos inválidos o incompletos",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Correo o documento duplicado",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Error interno del servidor",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Servicio temporal no disponible",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "06 - Tipo de dato incorrecto",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"nombres\": \"Daniel\",\n    \"apellidos\": \"Torres\",\n    \"documento\": 1005678912,\n    \"correo\": \"daniel@example.com\",\n    \"telefono\": \"3201234567\",\n    \"contrasena\": \"ClavePrueba2026!\"\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://127.0.0.1:8000/api/v1/auth/clientes",
+                          "protocol": "http",
+                          "host": [
+                            "127",
+                            "0",
+                            "0",
+                            "1"
+                          ],
+                          "port": "8000",
+                          "path": [
+                            "api",
+                            "v1",
+                            "auth",
+                            "clientes"
+                          ]
+                        },
+                        "description": "Permite registrar un nuevo cliente en Paraíso Turístico. Valida los datos, verifica que el correo y documento sean únicos, protege la contraseña mediante hash, asigna automáticamente el rol CLIENTE y genera una solicitud de bienvenida pendiente."
+                      },
+                      "response": [
+                        {
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": {\n    \"idUsuario\": 7479,\n    \"nombres\": \"string\",\n    \"rol\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"success\": true\n}"
+                        },
+                        {
+                          "name": "Datos inválidos o incompletos",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Correo o documento duplicado",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Error interno del servidor",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Servicio temporal no disponible",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "07 - Rol no autorizado",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"nombres\": \"Daniel\",\n    \"apellidos\": \"Torres\",\n    \"documento\": \"1005678912\",\n    \"correo\": \"daniel@example.com\",\n    \"telefono\": \"3201234567\",\n    \"contrasena\": \"ClavePrueba2026!\",\n    \"rol\": \"ADMINISTRADOR\"\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://127.0.0.1:8000/api/v1/auth/clientes",
+                          "protocol": "http",
+                          "host": [
+                            "127",
+                            "0",
+                            "0",
+                            "1"
+                          ],
+                          "port": "8000",
+                          "path": [
+                            "api",
+                            "v1",
+                            "auth",
+                            "clientes"
+                          ]
+                        },
+                        "description": "Permite registrar un nuevo cliente en Paraíso Turístico. Valida los datos, verifica que el correo y documento sean únicos, protege la contraseña mediante hash, asigna automáticamente el rol CLIENTE y genera una solicitud de bienvenida pendiente."
+                      },
+                      "response": [
+                        {
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": {\n    \"idUsuario\": 7479,\n    \"nombres\": \"string\",\n    \"rol\": \"string\",\n    \"estado\": \"string\"\n  },\n  \"success\": true\n}"
+                        },
+                        {
+                          "name": "Datos inválidos o incompletos",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Correo o documento duplicado",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Error interno del servidor",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        },
+                        {
+                          "name": "Servicio temporal no disponible",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"nombres\": \"string\",\n  \"apellidos\": \"string\",\n  \"documento\": \"string\",\n  \"correo\": \"Ml4U1roO6fo@R.ltz\",\n  \"telefono\": \"string\",\n  \"contrasena\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/auth/clientes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "clientes"
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"mensaje\": \"string\",\n  \"data\": null,\n  \"success\": false\n}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/",
+      "item": [
+        {
+          "name": "Inicio",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8000"
+    }
+  ]
+}
